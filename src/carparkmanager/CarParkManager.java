@@ -5,6 +5,8 @@
  */
 package carparkmanager;
 
+import java.util.Scanner;
+
 /**
  *
  * @author Rakhe
@@ -16,10 +18,15 @@ public class CarParkManager {
      */
     
     static int ticketNumber = 5000;
-    static String [][] parkSpace = new String [10][2];
+    static String[][] parkSpace = new String[10][2];
     
     public static void main(String[] args) {
-        // TODO code application logic here
+        Scanner scan = new Scanner(System.in);
+        System.out.println("Enter input:");
+        String userInput = scan.nextLine();
+        String[] inputs = userInput.split(",");
+        
+        
     }
     
     public static void Park(String str){
