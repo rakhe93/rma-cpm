@@ -26,6 +26,30 @@ public class CarParkManager {
         String userInput = scan.nextLine();
         String[] inputs = userInput.split(",");
         
+        for(int i=0; i<inputs.length; i++ ){
+            char c = Character.toLowerCase(inputs[i].charAt(0));
+            if(c == 'p'){
+                Park(inputs[i]);
+            }
+            else if(c == 'u'){
+                Unpark(inputs[i]);
+            }
+            else if(c == 'c'){
+                Compact(inputs[i]);
+            }
+            else{
+                System.out.println("Inputed wrong command.");
+                break;
+            }
+            
+        
+            
+            
+            
+
+            //System.out.println(c);
+
+        }
         
     }
     
