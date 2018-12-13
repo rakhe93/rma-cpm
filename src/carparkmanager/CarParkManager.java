@@ -18,7 +18,7 @@ public class CarParkManager {
      */
     
     static int ticketNumber = 5000;
-    static String[][] parkSpace = new String[10][2];
+    static String[][] parkSpace = new String[2][10];
     
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
@@ -54,6 +54,15 @@ public class CarParkManager {
     }
     
     public static void Park(String str){
+        String string = str.substring(1);
+        for(int i = 0; i<parkSpace.length;i++){
+            if(parkSpace[i] !=null ){
+                parkSpace[i][0] = Integer.toString(ticketNumber);
+                parkSpace[i][1] = string;
+                break;
+            }
+        }
+        ticketNumber++;
         
     }
     
