@@ -19,6 +19,7 @@ public class CarParkManager {
     
     static int ticketNumber = 5000;
     static String[][] parkSpace = new String[10][2];
+    static String[] carsParked = new String[10];
     
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
@@ -35,24 +36,22 @@ public class CarParkManager {
                 Unpark(inputs[i]);
             }
             else if(c == 'c'){
-                Compact();
+                carsParked = Compact();
             }
             else{
                 System.out.println("Inputed wrong command.");
                 break;
             }
             
-        
-            
-            
-
-            //System.out.println(c);
-
         }
-        /*****for(int j = 0; j<10;j++){
-                System.out.print(parkSpace[j][0]);
-                System.out.println(parkSpace[j][1]);
-            }*****/
+        
+        for(int i = 0; i<carsParked.length;i++){             
+            if(carsParked[i]==null){
+                 carsParked[i]=",";
+            }
+            System.out.print(carsParked[i] + " ");
+        }
+        
         
     }
     
@@ -62,6 +61,7 @@ public class CarParkManager {
             if(parkSpace[i][0]== null ){
                 parkSpace[i][0] = Integer.toString(ticketNumber);
                 parkSpace[i][1] = string;
+                carsParked[i] = string;
                 break;
             }
         }
@@ -75,14 +75,26 @@ public class CarParkManager {
             if(parkSpace[i][0].equals(string) ){
                 parkSpace[i][0] = null;
                 parkSpace[i][1] = null;
+                carsParked[i] = null;
                 break;
             }
         }
         
     }
     
-    public static void Compact(){
-      
+    public static String[] Compact(){
+        String[] carParkCompacted = new String[10];
+        int j = 0;
+        for(int i = 0; i<carsParked.length;i++){
+            if(carsParked[i]!=null ){   
+                carParkCompacted[j]=carsParked[i];
+                j++; 
+                
+            }
+            
+        }
+               
+        return carParkCompacted;
     }
     
 }
